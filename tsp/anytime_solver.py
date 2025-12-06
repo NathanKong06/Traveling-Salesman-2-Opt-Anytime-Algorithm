@@ -16,10 +16,11 @@ def anytime_tsp(points):
         if result is None:
             tour = create_random_tour(len(points))
             length = tour_length(tour, points)
+            yield tour,length
         else:
             tour, length = result
+            yield tour, length
 
         if length < best_length:
             best_tour = tour[:]
             best_length = length
-            yield best_tour, best_length
