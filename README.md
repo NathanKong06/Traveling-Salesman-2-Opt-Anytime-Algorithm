@@ -110,6 +110,8 @@ Generator function:
 - Repeatedly tries 2-opt
 - Yields better solutions as soon as they appear
 - Runs forever (or until stopped)
+- Tracks the best known solution so far
+- Restarts after reaching a local optimum
 
 ### main.py
 
@@ -118,3 +120,14 @@ Generator function:
 - Prints progress
 - Shows live Matplotlib animation
 - Stops cleanly on window close or Ctrl+C
+
+## Screenshots
+
+### Best Tour Recorded During Execution
+
+![Anytime TSP Visualization](best_tour.png)
+
+### Running Output and Final Output
+
+![Running output](screenshots/output_running.png)
+![Final output](screenshots/output_final.png)
