@@ -9,7 +9,7 @@ def generate_random_points(n, seed=0):
     return [(random.random(), random.random()) for _ in range(n)]
 
 def main():
-    num_cities = 100
+    num_cities = 150
     points = generate_random_points(num_cities, seed=random.seed())
     solver = anytime_tsp(points)
 
@@ -44,11 +44,11 @@ def main():
         tour_plot.set_data(x, y)
         ax.set_title(f"Current: {length:.4f} | Best so far: {best_length:.4f} | Num Cities: {num_cities}")
 
-        # print(f"Current length: {length:.4f} | Best length so far: {best_length:.4f}")
+        print(f"Current length: {length:.4f} | Best length so far: {best_length:.4f} | Num Cities: {num_cities}")
 
         return tour_plot,
 
-    anim = FuncAnimation(fig, update, interval=300)
+    anim = FuncAnimation(fig, update, interval=300, cache_frame_data=False)
 
     try:
         plt.show()
