@@ -21,9 +21,10 @@ def main():
     ax.set_ylim(0, 1)
 
     best_length = float("inf")
+    best_tour = None
 
     def update(_frame):
-        nonlocal best_length
+        nonlocal best_length, best_tour
         try:
             tour, length = next(solver)
         except StopIteration:
@@ -31,6 +32,7 @@ def main():
 
         if length < best_length:
             best_length = length
+            best_tour = tour[:]
 
         x = [points[i][0] for i in tour] + [points[tour[0]][0]]
         y = [points[i][1] for i in tour] + [points[tour[0]][1]]
@@ -47,9 +49,15 @@ def main():
     try:
         plt.show()
     except KeyboardInterrupt:
-        print("Visualization stopped.")
-        print(f"Best tour length found: {best_length:.4f}")
-        print("Points:", points)
+        print("\nVisualization stopped.")
+        print("=" * 40)
+        print("Best tour summary:")
+        print(f"Best tour length : {best_length:.4f}")
+        print(f"Best tour order  : {best_tour}")
+        print("City coordinates :")
+        for i, (x, y) in enumerate(points):
+            print(f"  City {i}: ({x:.4f}, {y:.4f})")
+        print("=" * 40)
 
     print("\nDone.")
 
