@@ -48,6 +48,8 @@ def main():
         plt.show()
     except KeyboardInterrupt:
         print("Visualization stopped.")
+        print(f"Best tour length found: {best_length:.4f}")
+        print("Points:", points)
 
     print("\nDone.")
 
