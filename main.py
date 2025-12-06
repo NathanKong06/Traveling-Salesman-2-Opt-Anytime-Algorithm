@@ -9,7 +9,7 @@ def generate_random_points(n, seed=0):
     return [(random.random(), random.random()) for _ in range(n)]
 
 def main():
-    points = generate_random_points(10, seed=random.seed())
+    points = generate_random_points(40, seed=random.seed())
     solver = anytime_tsp(points)
 
     print("Running Anytime TSP with live visualization...")
