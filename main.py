@@ -9,14 +9,14 @@ def generate_random_points(n, seed=0):
     return [(random.random(), random.random()) for _ in range(n)]
 
 def main():
-    points = generate_random_points(20, seed=42)
+    points = generate_random_points(10, seed=random.seed())
     solver = anytime_tsp(points)
 
     print("Running Anytime TSP with live visualization...")
     print("Close the plot window or press Ctrl+C to exit.\n")
 
     fig, ax = plt.subplots()
-    tour_plot, = ax.plot([], [], marker="o", linestyle="-")
+    tour_plot, = ax.plot([], [], marker="o", linestyle="-", color="red")
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
 
@@ -34,10 +34,13 @@ def main():
             best_length = length
             best_tour = tour[:]
 
+            plt.figure(fig.number) 
+            plt.title(f"Best tour length: {best_length:.4f}")
+            plt.savefig("best_tour.png")
+
         x = [points[i][0] for i in tour] + [points[tour[0]][0]]
         y = [points[i][1] for i in tour] + [points[tour[0]][1]]
         tour_plot.set_data(x, y)
-
         ax.set_title(f"Current: {length:.4f} | Best so far: {best_length:.4f}")
 
         print(f"Current length: {length:.4f} | Best length so far: {best_length:.4f}")
@@ -57,6 +60,7 @@ def main():
         print("City coordinates :")
         for i, (x, y) in enumerate(points):
             print(f"  City {i}: ({x:.4f}, {y:.4f})")
+        print(f"\nBest tour plot saved as 'best_tour.png'")
         print("=" * 40)
 
     print("\nDone.")
