@@ -125,7 +125,7 @@ Generator function:
 
 ### Best Tour Recorded During Execution
 
-![Anytime TSP Visualization](best_tour.png)
+![Anytime TSP Visualization](screenshots/best_tour.png)
 
 ### Running Output and Final Output
 
