@@ -9,7 +9,8 @@ def generate_random_points(n, seed=0):
     return [(random.random(), random.random()) for _ in range(n)]
 
 def main():
-    points = generate_random_points(40, seed=random.seed())
+    num_cities = 100
+    points = generate_random_points(num_cities, seed=random.seed())
     solver = anytime_tsp(points)
 
     print("Running Anytime TSP with live visualization...")
@@ -41,9 +42,9 @@ def main():
         x = [points[i][0] for i in tour] + [points[tour[0]][0]]
         y = [points[i][1] for i in tour] + [points[tour[0]][1]]
         tour_plot.set_data(x, y)
-        ax.set_title(f"Current: {length:.4f} | Best so far: {best_length:.4f}")
+        ax.set_title(f"Current: {length:.4f} | Best so far: {best_length:.4f} | Num Cities: {num_cities}")
 
-        print(f"Current length: {length:.4f} | Best length so far: {best_length:.4f}")
+        # print(f"Current length: {length:.4f} | Best length so far: {best_length:.4f}")
 
         return tour_plot,
 
