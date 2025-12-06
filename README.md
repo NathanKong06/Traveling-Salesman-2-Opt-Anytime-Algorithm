@@ -126,8 +126,13 @@ Generator function:
 ### Best Tour Recorded During Execution
 
 ![Anytime TSP Visualization](screenshots/best_tour.png)
+![Anytime TSP Visualization 2](screenshots/best_tour2.png)
 
-### Running Output and Final Output
+### Example Running Outputs and Final Outputs
 
+150 Cities Example:
+![Running Visualization](screenshots/anytime_running.png)
+
+40 Cities Example:
 ![Running output](screenshots/output_running.png)
 ![Final output](screenshots/output_final.png)
