@@ -80,6 +80,16 @@ python main.py
 - Current best length prints to the console.
 - Close the plot window or press Ctrl+C to stop.
 
+## Fast Mode (Non‑Visualization Mode)
+
+You can optionally run the solver in **fast mode**, which disables live plotting for maximum speed:
+
+- The solver prints only improved tour lengths
+- The best tour found so far is always stored
+- Whenever a new best tour appears, a static plot is saved as `best_tour.png`
+- This is useful for large numbers of cities where real‑time animation becomes slow
+- The speed increase is extremely large compared to Live Visualization
+
 ## Live Visualization
 
 The plot window shows:
