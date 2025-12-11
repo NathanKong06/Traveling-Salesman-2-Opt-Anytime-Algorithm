@@ -95,6 +95,7 @@ def main():
                 print(f"  City {i}: ({x:.4f}, {y:.4f})")
             print(f"\nBest tour plot saved as 'best_tour.png'")
             print("=" * 40)
+            plt.show()
 
 if __name__ == "__main__":
     main()
